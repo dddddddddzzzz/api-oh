@@ -1,0 +1,13 @@
+name = "ohapi"
+main = "src/worker.js"
+compatibility_date = "2024-10-14"
+workers_dev = false
+
+[[routes]]
+pattern = "api.oh.dddddddddzzzz.org"
+zone_name = "dddddddddzzzz.org"
+custom_domain = true
+
+[[kv_namespaces]]
+id = "3a5bd21e54b547ebb2bb64e25dab216c"
+binding = "KV"
