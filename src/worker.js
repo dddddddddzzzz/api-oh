@@ -1,13 +1,25 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run "npm run dev" in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run "npm run deploy" to publish your worker
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
+const instruction = `
+dddddddddzzzz OpenHeart protocol API
+https://api.oh.dddddddddzzzz.org
 
+Test with example.com as <domain>. Note <uid> for example.com will always be 'uid'.
+
+GET /<domain>/<uid> 
+to get reactions for <uid> under <domain>
+GET /<domain> to get reactions for everything under <domain>
+
+POST /<domain>/<uid> to send an emoji
+
+<uid> must not contain a forward slash.
+<domain> must match request domain.
+
+----- Test in CLI today -----
+Send emoji:
+curl -d '<emoji>' -X POST 'https://api.oh.dddddddddzzzz.org/example.com/uid'
+
+Get all emoji counts for /example.com/uid:
+curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'
+`
 
 export default {
   async fetch(request, env) {
@@ -26,11 +38,6 @@ function error(text, code = 400) {
   return new Response(text, {status: code})
 }
 
-const instruction = `
-POST endpoint: https://api.oh.dddddddddzzzz.org/<domain>/<uid>
-<uid> must not contain a forward slash.
-<domain> must match request domain. In local environment, test with example.com.
-`
 
 async function handleGet(request, env) {
   const requrl = url(request)
