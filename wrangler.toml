@@ -11,3 +11,6 @@ custom_domain = true
 [[kv_namespaces]]
 id = "3a5bd21e54b547ebb2bb64e25dab216c"
 binding = "KV"
+
+[observability]
+enabled = true
