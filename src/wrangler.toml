@@ -1,4 +1,4 @@
-name = "ohapi"
+name = "api-oh"
 main = "worker.js"
 compatibility_date = "2023-08-23"
 
