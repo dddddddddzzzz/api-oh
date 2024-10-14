@@ -4,9 +4,8 @@ https://api.oh.dddddddddzzzz.org
 
 Test with example.com as <domain>. Note <uid> for example.com will always be 'uid'.
 
-GET /<domain>/<uid> 
-to get reactions for <uid> under <domain>
-GET /<domain> to get reactions for everything under <domain>
+GET /<domain>/<uid> to look up reactions for <uid> under <domain>
+GET /<domain> to look up reactions for everything under <domain>
 
 POST /<domain>/<uid> to send an emoji
 
