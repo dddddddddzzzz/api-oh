@@ -1,4 +1,4 @@
-const instruction = `.^⋁^.
+const instruction = `.^&vee;^.
 '. .'
   `
 
