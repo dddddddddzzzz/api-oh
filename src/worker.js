@@ -58,7 +58,7 @@ async function handleGet(request, env) {
     obj[emoji] = value
     list[uid] = obj
   }
-  return new Response(JSON.stringify(list))
+  return new Response(JSON.stringify(uid ? list[uid] : list))
 }
 
 function url(request) {
