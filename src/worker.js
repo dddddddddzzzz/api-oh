@@ -1,6 +1,6 @@
-const instruction = `.^&vee;^.
+const instruction = `.^⋁^.
 '. .'
-  `
+  \`
 
 dddddddddzzzz
 OpenHeart protocol API
