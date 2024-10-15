@@ -1,5 +1,9 @@
-const instruction = `
-dddddddddzzzz OpenHeart protocol API
+const instruction = `.^⋁^.
+'. .'
+  `
+
+[dddddddddzzzz] OpenHeart protocol API
+
 https://api.oh.dddddddddzzzz.org
 
 Test with example.com as <domain>. Note <uid> for example.com will always be 'uid'.
@@ -12,7 +16,7 @@ POST /<domain>/<uid> to send an emoji
 <uid> must not contain a forward slash.
 <domain> must match request domain.
 
------ Test in CLI today -----
+----- Test in CLI -----
 Send emoji:
 curl -d '<emoji>' -X POST 'https://api.oh.dddddddddzzzz.org/example.com/uid'
 
