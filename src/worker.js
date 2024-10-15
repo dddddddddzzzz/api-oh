@@ -23,7 +23,7 @@ curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'
 export default {
   async fetch(request, env) {
     if (request.method === 'GET') {
-      if (request.path === '/') {
+      if (url(request).pathname === '/') {
         return new Response(instruction)
       } else {
         return handleGet(request, env)
@@ -40,7 +40,7 @@ function error(text, code = 400) {
 
 async function handleGet(request, env) {
   const {origin} = request.headers
-  const [domain, ...uidParts] = request.path.slice(1).split('/')
+  const [domain, ...uidParts] = url(request).pathname.slice(1).split('/')
   const testing = domain === 'example.com'
   if (!testing && domain !== origin) return error('domain does not match request origin')
   const list = {}
@@ -61,8 +61,12 @@ async function handleGet(request, env) {
   return new Response(JSON.stringify(list))
 }
 
+function url(request) {
+  return new URL(request.url)
+}
+
 async function handlePost(request, env) {
-  const path = request.path.slice(1)
+  const path = url(request).pathname.slice(1)
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
