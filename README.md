@@ -1,5 +1,11 @@
 # Public API for OpenHeart
 
+This is a **public** API for the [OpenHeart portocol](https://github.com/dddddddddzzzz/OpenHeart), none of the stored count should be expected to be private.
+
+It is advised that you own this data yourself. This API exist purely for convenience. We do not gurantee uptime and data persistence in the long run.
+
+## Get started
+
 Test now or locally with `example.com` as `<domain>`. 
 Note, with `example.com`, `<uid>` for example.com will always be `uid`.
 
@@ -29,5 +35,3 @@ GET /`<domain>` to look up reactions for everything under `<domain>`
 
 - `<uid>` must not contain a forward slash.
 - `<domain>` must match request origin.
-- This is a **public** API, none of the stored count should be expected to be private.
-- It is advised that you own this data yourself. This API exist purely for convenience. We do not gurantee uptime and data persistence in the long run.
