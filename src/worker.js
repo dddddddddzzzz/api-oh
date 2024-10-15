@@ -2,7 +2,8 @@ const instruction = `.^⋁^.
 '. .'
   `
 
-[dddddddddzzzz] OpenHeart protocol API
+dddddddddzzzz
+OpenHeart protocol API
 
 https://api.oh.dddddddddzzzz.org
 
