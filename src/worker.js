@@ -23,7 +23,7 @@ curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'
 export default {
   async fetch(request, env) {
     if (request.method === 'GET') {
-      if (url(request).pathname === '/') {
+      if (request.path === '/') {
         return new Response(instruction)
       } else {
         return handleGet(request, env)
@@ -39,9 +39,8 @@ function error(text, code = 400) {
 
 
 async function handleGet(request, env) {
-  const requrl = url(request)
-  const origin = requrl.host
-  const [domain, ...uidParts] = requrl.pathname.slice(1).split('/')
+  const {origin} = request.headers
+  const [domain, ...uidParts] = request.path.slice(1).split('/')
   const testing = domain === 'example.com'
   if (!testing && domain !== origin) return error('domain does not match request origin')
   const list = {}
@@ -62,13 +61,8 @@ async function handleGet(request, env) {
   return new Response(JSON.stringify(list))
 }
 
-function url(request) {
-  return new URL(request.url)
-}
-
 async function handlePost(request, env) {
-  const requrl = url(request)
-  const path = requrl.pathname.slice(1)
+  const path = request.path.slice(1)
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
@@ -77,7 +71,8 @@ async function handlePost(request, env) {
   
   if (uid.length < 1) return error('uid required.')
   
-  if (!testing && domain !== requrl.host) return error('domain does not match request origin')
+  const {origin} = request.headers
+  if (!testing && domain !== origin) return error('domain does not match request origin')
 
   const id = [encodeURI(domain), testing ? 'uid' : uid].join(':')
   const emoji = ensureEmoji(await request.text())
