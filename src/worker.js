@@ -24,7 +24,7 @@ export default {
   async fetch(request, env) {
     if (request.method === 'GET') {
       if (url(request).pathname === '/') {
-        return new Response(instruction)
+        return new Response(instruction, {headers})
       } else {
         return handleGet(request, env)
       }
@@ -33,8 +33,14 @@ export default {
   },
 }
 
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,POST",
+  "Access-Control-Max-Age": "86400",
+}
+
 function error(text, code = 400) {
-  return new Response(text, {status: code})
+  return new Response(text, {headers, status: code})
 }
 
 
@@ -58,7 +64,9 @@ async function handleGet(request, env) {
     obj[emoji] = value
     list[uid] = obj
   }
-  return new Response(JSON.stringify(uid ? list[uid] : list))
+  return new Response(
+    JSON.stringify(uid ? list[uid] : list), 
+    {headers: {...headers, 'Content-Type': 'application/json;charset=UTF-8'}})
 }
 
 function url(request) {
@@ -89,7 +97,7 @@ async function handlePost(request, env) {
   const currentCount = Number(await(env.KV.get(key)) || 0)
   await env.KV.put(key, currentCount + 1)
 
-  return new Response('recorded')
+  return new Response('recorded', {headers})
 }
 
 function ensureEmoji(emoji) {
