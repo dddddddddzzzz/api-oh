@@ -50,7 +50,7 @@ async function handleGet(request, env) {
   const testing = domain === 'example.com'
   if (!testing && domain !== origin) return error('domain does not match request origin')
   const list = {}
-  const uid = uidParts.join('')
+  const uid = testing ? 'uid' : uidParts.join('')
   let prefix = domain
   if (uid) {
     prefix += `:${uid}`
