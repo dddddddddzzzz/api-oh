@@ -48,7 +48,7 @@ async function handleGet(request, env) {
   const {origin} = request.headers
   const [domain, ...uidParts] = url(request).pathname.slice(1).split('/')
   const testing = domain === 'example.com'
-  if (!testing && domain !== origin) return error('domain does not match request origin')
+  if (!testing && domain !== origin) return error(`domain <${domain}> does not match origin <${origin}>`)
   const list = {}
   const uid = testing ? 'uid' : uidParts.join('')
   let prefix = domain
@@ -84,7 +84,7 @@ async function handlePost(request, env) {
   if (uid.length < 1) return error('uid required.')
   
   const {origin} = request.headers
-  if (!testing && domain !== origin) return error('domain does not match request origin')
+  if (!testing && domain !== origin) return error(`domain <${domain}> does not match origin <${origin}>`)
 
   const id = [encodeURI(domain), testing ? 'uid' : uid].join(':')
   const emoji = ensureEmoji(await request.text())
