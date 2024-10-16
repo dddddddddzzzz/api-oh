@@ -49,10 +49,9 @@ function error(text, code = 400) {
 
 
 async function handleGet(request, env) {
-  const origin = new URL(request.headers.get('origin')).host
   const [domain, ...uidParts] = url(request).pathname.slice(1).split('/')
   const list = {}
-  const uid = testing ? 'uid' : uidParts.join('')
+  const uid = uidParts ? uidParts.join('') : null
   let prefix = domain
   if (uid) {
     prefix += `:${uid}`
@@ -80,11 +79,11 @@ async function handlePost(request, env) {
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
-  const uid = uidParts.join('')
+  const uid = uidParts ? uidParts.join('') : ''
   
   if (uid.length < 1) return error('uid required.')
   
-  const id = [encodeURI(domain), testing ? 'uid' : uid].join(':')
+  const id = [encodeURI(domain), uid].join(':')
   const emoji = ensureEmoji(await request.text())
   
   if (!emoji) return error('request body should contain an emoji')
