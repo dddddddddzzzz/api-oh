@@ -15,7 +15,6 @@ GET /<domain> to look up reactions for everything under <domain>
 POST /<domain>/<uid> to send an emoji
 
 <uid> must not contain a forward slash.
-<domain> must match request domain.
 
 ----- Test in CLI -----
 Send emoji:
@@ -52,8 +51,6 @@ function error(text, code = 400) {
 async function handleGet(request, env) {
   const origin = new URL(request.headers.get('origin')).host
   const [domain, ...uidParts] = url(request).pathname.slice(1).split('/')
-  const testing = domain === 'example.com'
-  if (!testing && domain !== origin) return error(`domain <${domain}> does not match origin <${origin}>`)
   const list = {}
   const uid = testing ? 'uid' : uidParts.join('')
   let prefix = domain
@@ -83,14 +80,10 @@ async function handlePost(request, env) {
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
-  const testing = domain === 'example.com'
   const uid = uidParts.join('')
   
   if (uid.length < 1) return error('uid required.')
   
-  const origin = new URL(request.headers.get('origin')).host
-  if (!testing && domain !== origin) return error(`domain <${domain}> does not match origin <${origin}>`)
-
   const id = [encodeURI(domain), testing ? 'uid' : uid].join(':')
   const emoji = ensureEmoji(await request.text())
   

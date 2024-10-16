@@ -34,4 +34,3 @@ GET /`<domain>` to look up reactions for everything under `<domain>`
 ## Usage notice
 
 - `<uid>` must not contain a forward slash.
-- `<domain>` must match request origin.
