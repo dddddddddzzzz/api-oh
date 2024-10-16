@@ -15,6 +15,7 @@ GET /<domain> to look up reactions for everything under <domain>
 POST /<domain>/<uid> to send an emoji
 
 <uid> must not contain a forward slash.
+<domain> owner has the right to remove data under its domain scope.
 
 ----- Test in CLI -----
 Send emoji:

@@ -34,3 +34,4 @@ GET /`<domain>` to look up reactions for everything under `<domain>`
 ## Usage notice
 
 - `<uid>` must not contain a forward slash.
+- `<domain>` owner has the right to remove data under its domain scope.
