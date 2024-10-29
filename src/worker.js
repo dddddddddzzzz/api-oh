@@ -98,7 +98,7 @@ async function handlePost(request, env) {
   
   const redirection = urlObject.searchParams.get('redirect')
   if (redirection !== null) {
-    headers['Location'] = redirection || request.referrer
+    headers['Location'] = redirection || request.headers.get('Referer')
     return new Response('recorded', {headers, status: 303})
   } else {
     return new Response('recorded', {headers})

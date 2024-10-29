@@ -31,7 +31,7 @@ POST /`<domain>`/`<uid>` to send an emoji
 
 GET /`<domain>` to look up reactions for everything under `<domain>`
 
-POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `request.referrer` with blank `<url>`, or a destination `<url>`.
+POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `Referer` header with blank `<url>`, or a destination `<url>`.
 
 ## Usage notice
 
