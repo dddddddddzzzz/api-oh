@@ -27,9 +27,11 @@ GET /`<domain>`/`<uid>` to look up reactions for `<uid>` under `<domain>`
 
 POST /`<domain>`/`<uid>` to send an emoji
 
-### Not in spec:   
+### Not in spec:
 
 GET /`<domain>` to look up reactions for everything under `<domain>`
+
+POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `request.referrer` with blank `<url>`, or a destination `<url>`.
 
 ## Usage notice
 

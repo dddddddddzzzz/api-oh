@@ -76,7 +76,8 @@ function url(request) {
 }
 
 async function handlePost(request, env) {
-  const path = url(request).pathname.slice(1)
+  const urlObject = url(request)
+  const path = urlObject.pathname.slice(1)
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
@@ -94,8 +95,14 @@ async function handlePost(request, env) {
   // https://developers.cloudflare.com/workers/runtime-apis/kv/
   const currentCount = Number(await(env.KV.get(key)) || 0)
   await env.KV.put(key, currentCount + 1)
-
-  return new Response('recorded', {headers})
+  
+  const redirection = urlObject.searchParams.get('redirect')
+  if (redirection !== null) {
+    headers['Location'] = redirection || request.referrer
+    return new Response('recorded', {headers, status: 303})
+  } else {
+    return new Response('recorded', {headers})
+  }
 }
 
 function ensureEmoji(emoji) {
