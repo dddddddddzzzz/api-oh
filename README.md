@@ -6,20 +6,21 @@ It is advised that you own this data yourself. This API exist purely for conveni
 
 ## Get started
 
-Test now or locally with `example.com` as `<domain>`. 
-Note, with `example.com`, `<uid>` for example.com will always be `uid`.
+Endpoint: `https://api.oh.dddddddddzzzz.org/<domain>/<uid>`
 
-Send emoji:
+Test now with `github.com` as `<domain>`, `dddddddddddzzzz/api-oh` as `<uid>`.
 
-`curl -d '<emoji>' -X POST 'https://api.oh.dddddddddzzzz.org/example.com/uid'`
+Send emoji 💯:
 
-Get all emoji counts for /example.com/uid:
+`curl -d '💯' -X POST 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
 
-`curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'`
+Get all emoji counts for /github.com/dddddddddddzzzz/api-oh:
+
+`curl 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
 
 ### Put it on your website right now
 
-Copy and past the following HTML snippet, wwap `example.com` with your domain. That's it!
+Copy and past the following HTML snippet, and swap `example.com` with your domain. That's it!
 
 ```html
 <form action="https://api.oh.dddddddddzzzz.org/example.com/index?redirect" method="POST" enctype="text/plain">
