@@ -55,5 +55,4 @@ POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `Referer` head
 
 ## Usage notice
 
-- `<uid>` must not contain a forward slash.
 - `<domain>` owner has the right to remove data under its domain scope.

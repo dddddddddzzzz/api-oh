@@ -52,7 +52,7 @@ function error(text, code = 400) {
 async function handleGet(request, env) {
   const [domain, ...uidParts] = url(request).pathname.slice(1).split('/')
   const list = {}
-  const uid = uidParts ? uidParts.join('') : null
+  const uid = uidParts ? uidParts.join('/') : null
   let prefix = domain
   if (uid) {
     prefix += `:${uid}`
@@ -81,7 +81,7 @@ async function handlePost(request, env) {
   if (path === '') return error('pathname missing')
 
   const [domain, ...uidParts] = path.split('/')
-  const uid = uidParts ? uidParts.join('') : ''
+  const uid = uidParts ? uidParts.join('/') : ''
   
   if (uid.length < 1) return error('uid required.')
   
