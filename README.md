@@ -26,11 +26,15 @@ POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `Referer` head
 
 Send emoji 💯 with `github.com` as `<domain>`, `dddddddddddzzzz/api-oh` as `<uid>`:
 
-`curl -d '💯' -X POST 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
+```
+curl -d '💯' -X POST 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'
+```
 
 Get all emoji counts for `/github.com/dddddddddddzzzz/api-oh`:
 
-`curl 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
+```
+curl 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'
+```
 
 ### Put it on your website right now
 
