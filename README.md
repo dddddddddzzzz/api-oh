@@ -17,6 +17,26 @@ Get all emoji counts for /example.com/uid:
 
 `curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'`
 
+### Put it on your website right now
+
+Copy and past the following HTML snippet, wwap `example.com` with your domain. That's it!
+
+```html
+<form action="https://api.oh.dddddddddzzzz.org/example.com/index?redirect" method="POST" enctype="text/plain">
+  <button name="👍">👍</button>
+</form>
+```
+
+Alternatively, with JavaScript, you can use [`<open-heart>`](https://github.com/dddddddddzzzz/open-heart-element).
+
+```html
+<!-- Include `OpenHeartElement` once, on your page -->
+<script src="https://unpkg.com/open-heart-element" type="module"></script>
+
+<!-- Render `<open-heart>` -->
+<open-heart href="https://api.oh.dddddddddzzzz.org/example.com/index" emoji="👍">👍</open-heart>
+```
+
 ## Usage
 
 https://api.oh.dddddddddzzzz.org
