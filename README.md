@@ -4,9 +4,25 @@ This is a **public** API for the [OpenHeart portocol](https://github.com/ddddddd
 
 It is advised that you own this data yourself. This API exist purely for convenience. We do not gurantee uptime and data persistence in the long run.
 
-## Get started
+## Usage
 
-Endpoint: `https://api.oh.dddddddddzzzz.org/<domain>/<uid>`
+https://api.oh.dddddddddzzzz.org
+
+### In `OpenHeart` spec
+
+GET /`<domain>`/`<uid>` to look up reactions for `<uid>` under `<domain>`
+
+POST /`<domain>`/`<uid>` to send an emoji
+
+### Not in `OpenHeart` spec:
+
+GET /`<domain>` to look up reactions for everything under `<domain>`
+
+POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `Referer` header with blank `<url>`, or a destination `<url>`.
+
+`<domain>` owner has the right to remove data under their domain scope.
+
+## Try it out
 
 Send emoji 💯 with `github.com` as `<domain>`, `dddddddddddzzzz/api-oh` as `<uid>`:
 
@@ -35,23 +51,3 @@ Alternatively, with JavaScript, you can use [`<open-heart>`](https://github.com/
 <!-- Render `<open-heart>` -->
 <open-heart href="https://api.oh.dddddddddzzzz.org/example.com/index" emoji="👍">👍</open-heart>
 ```
-
-## Usage
-
-https://api.oh.dddddddddzzzz.org
-
-### In spec
-
-GET /`<domain>`/`<uid>` to look up reactions for `<uid>` under `<domain>`
-
-POST /`<domain>`/`<uid>` to send an emoji
-
-### Not in spec:
-
-GET /`<domain>` to look up reactions for everything under `<domain>`
-
-POST /`<domain>`/`<uid>?redirect=<url>` to send users either back `Referer` header with blank `<url>`, or a destination `<url>`.
-
-## Usage notice
-
-- `<domain>` owner has the right to remove data under its domain scope.
