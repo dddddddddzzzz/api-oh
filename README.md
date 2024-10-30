@@ -8,13 +8,11 @@ It is advised that you own this data yourself. This API exist purely for conveni
 
 Endpoint: `https://api.oh.dddddddddzzzz.org/<domain>/<uid>`
 
-Test now with `github.com` as `<domain>`, `dddddddddddzzzz/api-oh` as `<uid>`.
-
-Send emoji 💯:
+Send emoji 💯 with `github.com` as `<domain>`, `dddddddddddzzzz/api-oh` as `<uid>`:
 
 `curl -d '💯' -X POST 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
 
-Get all emoji counts for /github.com/dddddddddddzzzz/api-oh:
+Get all emoji counts for `/github.com/dddddddddddzzzz/api-oh`:
 
 `curl 'https://api.oh.dddddddddzzzz.org/github.com/dddddddddddzzzz/api-oh'`
 
