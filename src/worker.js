@@ -7,7 +7,7 @@ OpenHeart protocol API
 
 https://api.oh.dddddddddzzzz.org
 
-Test with example.com as <domain>. Note <uid> for example.com will always be 'uid'.
+Test with example.com as <domain>.
 
 GET /<domain>/<uid> to look up reactions for <uid> under <domain>
 GET /<domain> to look up reactions for everything under <domain>
