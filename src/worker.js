@@ -67,7 +67,7 @@ async function handleGet(request, env) {
     list[uid] = obj
   }
   return new Response(
-    JSON.stringify(uid ? list[uid] : list), 
+    JSON.stringify(uid ? (list[uid] || {}) : list), 
     {headers: {...headers, 'Content-Type': 'application/json;charset=UTF-8'}})
 }
 
