@@ -27,6 +27,9 @@ curl 'https://api.oh.dddddddddzzzz.org/example.com/uid'
 
 export default {
   async fetch(request, env) {
+    if (request.method == 'OPTIONS') {
+      return new Response(null, {headers});
+    }
     if (request.method === 'GET') {
       if (url(request).pathname === '/') {
         return new Response(instruction, {headers})
