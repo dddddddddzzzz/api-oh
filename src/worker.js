@@ -66,7 +66,7 @@ async function handleGet(request, env) {
     const value = await env.KV.get(key.name)
     const [_, uid, emoji] = key.name.split(':')
     const obj = list[uid] || {}
-    obj[emoji] = value
+    obj[emoji] = Number(value)
     list[uid] = obj
   }
   return new Response(
